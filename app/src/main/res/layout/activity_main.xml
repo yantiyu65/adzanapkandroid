@@ -1,0 +1,105 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#375964"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/headerBackground"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bgm" />
+
+    <LinearLayout
+        android:id="@+id/textContainer"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/headerBackground"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/textArabic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="الله أكبر الله أكبر"
+            android:textSize="26sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/textLatin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Allahu Akbar Allahu Akbar"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/textIndo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Allah Maha Besar"
+            android:textSize="16sp"
+            android:textColor="#DDDDDD"
+            android:gravity="center"
+            android:layout_marginBottom="4dp" />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btnPlayPause"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_below="@id/textContainer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_button_bg"
+        android:src="@drawable/ic_play"
+        android:tint="#FFFFFF"
+        android:elevation="4dp" />
+
+    <!-- Visualizer -->
+    <com.gauravk.audiovisualizer.visualizer.BlastVisualizer
+        android:id="@+id/blast"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/btnPlayPause"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        ads:avColor="@color/av_dark_blue"
+        ads:avDensity="0.8"
+        ads:avSpeed="normal"
+        ads:avType="fill" />
+
+    <!-- Daftar Adzan -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewAdzan"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/blast"
+        android:layout_above="@id/adView"
+        android:padding="12dp"
+        android:clipToPadding="false" />
+
+    <!-- Iklan AdMob -->
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
